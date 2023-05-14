@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/login}" method="post">
+  <input th:field="${user.id}" hidden>
+  <input th:field="${user.username}">
+  <input th:field="${user.password}">
+    <button type="submit">Submit</button>
+</form>
+<h2 th:if="${invalid}" style="color: red">Invalid login</h2>
+</body>
+</html>

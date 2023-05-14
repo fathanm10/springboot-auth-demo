@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.0.6'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'  // starter for jpa ORM with hibernate
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:3.0.4'   // starter for thymeleaf, front-end
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.0.3' // spring web, starting server
+    implementation 'org.postgresql:postgresql:42.5.4'   // postgres driver
+    implementation 'org.hibernate.validator:hibernate-validator:8.0.0.Final'    // validation framework for form input
+    implementation 'org.springframework.boot:spring-boot-starter-security:3.0.4'    // authentication
+    compileOnly 'org.projectlombok:lombok'  // reduces boilerplate code. compiled code
+    developmentOnly 'org.springframework.boot:spring-boot-devtools' // live reload integration, automatic restart
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'  // autocompletion for config properties
+    annotationProcessor 'org.projectlombok:lombok'  // reduces boilerplate code. annotation
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'  // unit testing tools
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
